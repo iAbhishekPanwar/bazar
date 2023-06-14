@@ -7,7 +7,6 @@ const Cart = () => {
   const productData = useSelector((state) => state.bazar.productData);
   const userInfo = useSelector((state) => state.bazar.userInfo);
   const [totalAmt, setTotalAmt] = useState("");
-  const [payNow, setPayNow] = useState(false);
 
   useEffect(() => {
     let price = 0;
@@ -20,11 +19,12 @@ const Cart = () => {
 
   const handleCheckout = () => {
     if (userInfo) {
-      setPayNow(true);
+      toast.success("Thankyou for shopping");
     } else {
       toast.error("Please sign in to Checkout");
     }
   };
+
   return (
     <div>
       <img
